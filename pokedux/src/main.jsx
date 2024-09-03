@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 import { legacy_createStore as createStore } from 'redux'
 import './index.css'
 
-const store = createStore(pokemonsReducer)
+const store = createStore(pokemonsReducer, window.REDUX_DEVTOOLS_EXTENSION && window.REDUX_DEVTOOLS_EXTENSION())
 
 createRoot(document.getElementById('root')).render(
     <Provider store={store}>
