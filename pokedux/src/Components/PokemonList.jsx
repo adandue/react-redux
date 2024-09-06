@@ -9,6 +9,8 @@ const PokemonList = ({ pokemons = Array(10).fill('') }) => {
         key={pokemon.name} 
         image={pokemon.sprites.front_default}
         abilities={pokemon.abilities}
+        types = {pokemon.types}
+        id={pokemon.id}
         />;
         })}
     </div>
