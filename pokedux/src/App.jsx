@@ -3,15 +3,15 @@ import { Col, Spin } from 'antd'
 import { Searcher } from './Components/Searcher'
 import { getPokemon, getPokemonDetails } from './api'
 import { getPokemonsWithDetails, setLoading, setPokemons } from './actions'
-import { useDispatch, useSelector } from 'react-redux'
+import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import PokemonList from './Components/PokemonList'
 import './App.css'
 
 function App() {
 const logo = 'https://static.platzi.com/media/tmp/class-files/github/curso-redux/curso-redux-01-pokeapi/src/statics/logo.svg'
 
-const pokemons = useSelector(state => state.get('pokemons')).toJS()
-const loading = useSelector(state => state.get('loading'))
+const pokemons = useSelector(state => state.getIn(['data','pokemons'], shallowEqual)).toJS()
+const loading = useSelector(state => state.getIn(['ui','loading']))
 const dispatch = useDispatch()
 
 useEffect(() => {
