@@ -10,8 +10,8 @@ import './App.css'
 function App() {
 const logo = 'https://static.platzi.com/media/tmp/class-files/github/curso-redux/curso-redux-01-pokeapi/src/statics/logo.svg'
 
-const pokemons = useSelector(state => state.pokemons)
-const loading = useSelector(state => state.loading)
+const pokemons = useSelector(state => state.get('pokemons')).toJS()
+const loading = useSelector(state => state.get('loading'))
 const dispatch = useDispatch()
 
 useEffect(() => {
